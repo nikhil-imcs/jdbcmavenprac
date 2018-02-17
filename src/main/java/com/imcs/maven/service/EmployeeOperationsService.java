@@ -26,5 +26,7 @@ public interface EmployeeOperationsService {
 	List<Employee> sortBySalary() throws SQLException;
 
 	List<Employee> getHighSalaryEmployees(double salary) throws SQLException;
+	
+	List<Employee> sortByAge() throws SQLException;
 
 }

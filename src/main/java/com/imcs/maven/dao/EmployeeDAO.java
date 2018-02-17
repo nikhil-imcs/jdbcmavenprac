@@ -26,4 +26,6 @@ public interface EmployeeDAO {
 
 	List<Employee> getHighSalaryEmployees(double salary) throws SQLException;
 
+	List<Employee> sortByAge() throws SQLException;
+
 }

@@ -69,4 +69,11 @@ public class EmployeeOperationsServiceImpl implements EmployeeOperationsService 
 		return highSalariedEmps;
 	}
 
+	@Override
+	public List<Employee> sortByAge() throws SQLException {
+		List<Employee> sortedEmps=empDao.sortByAge();
+		
+		return sortedEmps;
+	}
+
 }

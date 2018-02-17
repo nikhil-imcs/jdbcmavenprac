@@ -241,4 +241,28 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return employees;
 	}
 
+	@Override
+	public List<Employee> sortByAge() throws SQLException {
+		List<Employee> employees = new ArrayList<>();
+		try (Connection con = ds.getConnection(); Statement stmt = con.createStatement();) {
+			String sql = "select id,first_name,last_name,age,salary,dept_no from employee order by age";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				Employee e = new Employee();
+				e.setId(rs.getInt("id"));
+				e.setFirstName(rs.getString("first_name"));
+				e.setLastName(rs.getString("last_name"));
+				e.setAge(rs.getInt("age"));
+				e.setSalary(rs.getDouble("salary"));
+				e.setDeptNo(rs.getInt("dept_no"));
+
+				employees.add(e);
+			}
+		} catch (SQLException exp) {
+			exp.printStackTrace();
+			return null;
+		}
+		return employees;
+	}
+
 }
